@@ -1,0 +1,9 @@
+venv/
+env/
+ENV/
+bin/
+lib/
+lib64/
+Include/
+.env
+__pycache__/
