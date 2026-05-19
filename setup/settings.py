@@ -31,12 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #meus apps
+    'bookio',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +72,15 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'usuarios.Usuario'
+
 WSGI_APPLICATION = 'setup.wsgi.application'
+
+UNFOLD = {
+    "SITE_TITLE": "Bookio",
+    "SITE_HEADER": "Bookio Admin",
+    "SITE_SYMBOL": "menu_book",
+}
 
 
 # Database
@@ -102,9 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'pt-br'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
