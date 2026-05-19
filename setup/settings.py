@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #meus apps
     'bookio',
     'apps.usuarios',
+    'apps.catalogo',
 ]
 
 MIDDLEWARE = [
