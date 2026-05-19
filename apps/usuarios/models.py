@@ -8,9 +8,9 @@ class Usuario(AbstractUser):
         MASCULINO = 'M', 'Masculino'
         FEMININO = 'F', 'Feminino'
 
-    nickname = models.CharField(max_length=150, unique=True, verbose_name="Nickname")
-    nome = models.CharField(max_length=150, verbose_name="Nome")
-    data_nascimento = models.DateField(verbose_name="Data de Nascimento")
+    nickname = models.CharField(max_length=150, unique=True, verbose_name="Nickname", blank=True, null=True)
+    nome = models.CharField(max_length=150, verbose_name="Nome", blank=True, null=True)
+    data_nascimento = models.DateField(verbose_name="Data de Nascimento", null=True, blank=True)
     genero = models.CharField(
         max_length=1,
         choices=Genero.choices,
@@ -25,7 +25,7 @@ class Usuario(AbstractUser):
         null=True,
     )
 
-    bio = models.CharField(max_length=150, verbose_name="Bio")
+    bio = models.CharField(max_length=150, verbose_name="Bio", blank=True, null=True)
 
     streak_atual = models.PositiveIntegerField(default=0)
     maior_streak = models.PositiveIntegerField(default=0)
