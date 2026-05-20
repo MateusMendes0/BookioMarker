@@ -1,0 +1,134 @@
+[
+  {
+    "model": "catalogo.categoria",
+    "pk": 1,
+    "fields": {
+      "nome": "Ficção Científica",
+      "descricao": "Livros que exploram conceitos imaginativos e futuristas."
+    }
+  },
+  {
+    "model": "catalogo.categoria",
+    "pk": 2,
+    "fields": {
+      "nome": "Fantasia",
+      "descricao": "Livros com elementos mágicos e sobrenaturais."
+    }
+  },
+  {
+    "model": "catalogo.categoria",
+    "pk": 3,
+    "fields": {
+      "nome": "Romance",
+      "descricao": "Livros focados em relacionamentos amorosos."
+    }
+  },
+  {
+    "model": "catalogo.categoria",
+    "pk": 4,
+    "fields": {
+      "nome": "Terror",
+      "descricao": "Livros feitos para assustar ou causar medo."
+    }
+  },
+  {
+    "model": "catalogo.autor",
+    "pk": 1,
+    "fields": {
+      "nome": "Isaac Asimov",
+      "biografia": "Um dos mestres da ficção científica.",
+      "data_nascimento": "1920-01-02",
+      "country": "US"
+    }
+  },
+  {
+    "model": "catalogo.autor",
+    "pk": 2,
+    "fields": {
+      "nome": "J.R.R. Tolkien",
+      "biografia": "Criador do universo de O Senhor dos Anéis.",
+      "data_nascimento": "1892-01-03",
+      "country": "GB"
+    }
+  },
+  {
+    "model": "catalogo.autor",
+    "pk": 3,
+    "fields": {
+      "nome": "Jane Austen",
+      "biografia": "Famosa escritora de romances ingleses.",
+      "data_nascimento": "1775-12-16",
+      "country": "GB"
+    }
+  },
+  {
+    "model": "catalogo.autor",
+    "pk": 4,
+    "fields": {
+      "nome": "Stephen King",
+      "biografia": "Mestre contemporâneo do terror.",
+      "data_nascimento": "1947-09-21",
+      "country": "US"
+    }
+  },
+  {
+    "model": "catalogo.livro",
+    "pk": 1,
+    "fields": {
+      "titulo": "Fundação",
+      "isbn": "9780553293357",
+      "total_paginas": 255,
+      "capa_url": "https://example.com/fundacao.jpg",
+      "autor": 1,
+      "categorias": [1],
+      "data_publicacao": "1951-05-01",
+      "capa": "",
+      "idioma": "pt"
+    }
+  },
+  {
+    "model": "catalogo.livro",
+    "pk": 2,
+    "fields": {
+      "titulo": "O Hobbit",
+      "isbn": "9780547928227",
+      "total_paginas": 310,
+      "capa_url": "https://example.com/hobbit.jpg",
+      "autor": 2,
+      "categorias": [2],
+      "data_publicacao": "1937-09-21",
+      "capa": "",
+      "idioma": "pt"
+    }
+  },
+  {
+    "model": "catalogo.livro",
+    "pk": 3,
+    "fields": {
+      "titulo": "Orgulho e Preconceito",
+      "isbn": "9780141439518",
+      "total_paginas": 432,
+      "capa_url": "https://example.com/orgulho.jpg",
+      "autor": 3,
+      "categorias": [3],
+      "data_publicacao": "1813-01-28",
+      "capa": "",
+      "idioma": "pt"
+    }
+  },
+  {
+    "model": "catalogo.livro",
+    "pk": 4,
+    "fields": {
+      "titulo": "O Iluminado",
+      "isbn": "9780307743657",
+      "total_paginas": 447,
+      "capa_url": "https://example.com/iluminado.jpg",
+      "autor": 4,
+      "categorias": [4],
+      "data_publicacao": "1977-01-28",
+      "capa": "",
+      "idioma": "pt"
+    }
+  }
+]
