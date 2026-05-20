@@ -1,5 +1,8 @@
 from django.db import models
 from django_countries.fields import CountryField
+from django.conf import settings
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.exceptions import ValidationError
 
 class Idioma(models.TextChoices):
     PORTUGUES = 'pt', 'Português'
@@ -69,3 +72,24 @@ class Livro(models.Model):
     class Meta:
         verbose_name = "Livro"
         verbose_name_plural = "Livros"
+
+
+class Avaliacao(models.Model):
+    pessoa = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='avaliacoes')
+    livro = models.ForeignKey('catalogo.Livro', on_delete=models.CASCADE, related_name='avaliacoes')
+    
+    nota = models.PositiveIntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
+    
+    texto_resenha = models.TextField(blank=True, null=True)
+    
+    data_avaliacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Avaliação de {self.pessoa.username} para {self.livro.titulo} - Nota: {self.nota}"
+
+    class Meta:
+        verbose_name = "Avaliação"
+        verbose_name_plural = "Avaliações"
+        unique_together = ['pessoa', 'livro']
