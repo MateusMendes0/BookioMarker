@@ -27,6 +27,13 @@ O sistema é dividido em três aplicações principais Django localizadas no dir
 
 ---
 
+
+## Diagrama
+
+<img src="images/image.png" alt="description" width="800">
+
+
+
 ## 🛠️ Tecnologias Utilizadas
 
 *   **Python 3**
