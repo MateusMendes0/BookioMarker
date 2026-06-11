@@ -10,10 +10,7 @@ class Idioma(models.TextChoices):
     ESPANHOL = 'es', 'Espanhol'
     FRANCES = 'fr', 'Francês'
     ALEMAO = 'de', 'Alemão'
-    
-    class Meta:
-        verbose_name = "Idioma"
-        verbose_name_plural = "Idiomas"
+
 
 class Autor(models.Model):
     nome = models.CharField(max_length=255, verbose_name="Nome")
