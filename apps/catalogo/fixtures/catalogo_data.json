@@ -78,9 +78,11 @@
       "titulo": "Fundação",
       "isbn": "9780553293357",
       "total_paginas": 255,
-      "capa_url": "https://example.com/fundacao.jpg",
+      "capa_url": "https://m.media-amazon.com/images/I/712vJIziMgL.jpg",
       "autor": 1,
-      "categorias": [1],
+      "categorias": [
+        1
+      ],
       "data_publicacao": "1951-05-01",
       "capa": "",
       "idioma": "pt"
@@ -93,9 +95,11 @@
       "titulo": "O Hobbit",
       "isbn": "9780547928227",
       "total_paginas": 310,
-      "capa_url": "https://example.com/hobbit.jpg",
+      "capa_url": "https://m.media-amazon.com/images/I/91M9xPIf10L.jpg",
       "autor": 2,
-      "categorias": [2],
+      "categorias": [
+        2
+      ],
       "data_publicacao": "1937-09-21",
       "capa": "",
       "idioma": "pt"
@@ -108,9 +112,11 @@
       "titulo": "Orgulho e Preconceito",
       "isbn": "9780141439518",
       "total_paginas": 432,
-      "capa_url": "https://example.com/orgulho.jpg",
+      "capa_url": "https://m.media-amazon.com/images/I/719esIW3D7L.jpg",
       "autor": 3,
-      "categorias": [3],
+      "categorias": [
+        3
+      ],
       "data_publicacao": "1813-01-28",
       "capa": "",
       "idioma": "pt"
@@ -123,9 +129,11 @@
       "titulo": "O Iluminado",
       "isbn": "9780307743657",
       "total_paginas": 447,
-      "capa_url": "https://example.com/iluminado.jpg",
+      "capa_url": "https://m.media-amazon.com/images/I/8147kKLLvOL._AC_UF1000,1000_QL80_.jpg",
       "autor": 4,
-      "categorias": [4],
+      "categorias": [
+        4
+      ],
       "data_publicacao": "1977-01-28",
       "capa": "",
       "idioma": "pt"

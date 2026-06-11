@@ -30,6 +30,12 @@ class Leitura(models.Model):
     def __str__(self):
         return f"{self.pessoa.username} - {self.livro.titulo} ({self.get_status_display()})"
 
+    @property
+    def progresso_porcentagem(self):
+        if self.livro and self.livro.total_paginas > 0:
+            return int((self.paginas_lidas / self.livro.total_paginas) * 100)
+        return 0
+
     def clean(self):
         if self.livro and self.paginas_lidas > self.livro.total_paginas:
             raise ValidationError({'paginas_lidas': f"Não pode ser maior que o total de páginas do livro ({self.livro.total_paginas})."})

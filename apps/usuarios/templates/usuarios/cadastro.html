@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Bookio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Card Principal Glassmorphism -->
+    <div class="w-full max-w-md bg-slate-900/60 backdrop-blur-xl border border-slate-800 shadow-2xl rounded-3xl p-8 relative overflow-hidden my-6">
+        
+        <!-- Elementos Decorativos de Fundo (Glow) -->
+        <div class="absolute -top-10 -left-10 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Cabeçalho -->
+        <div class="text-center mb-8 relative z-10">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white mb-4 shadow-lg shadow-purple-500/25">
+                <!-- Icone de Livro -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold bg-gradient-to-r from-white via-slate-100 to-indigo-200 bg-clip-text text-transparent">Criar Conta</h1>
+            <p class="text-slate-400 mt-2 text-sm">Cadastre-se para acompanhar sua jornada literária</p>
+        </div>
+
+        <!-- Erros Gerais do Formulário -->
+        {% if form.non_field_errors %}
+        <div class="bg-red-500/15 border border-red-500/30 text-red-300 px-4 py-3 rounded-2xl mb-6 text-sm flex items-start gap-2.5 animate-pulse">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 shrink-0 mt-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+            </svg>
+            <div>
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Formulário de Cadastro -->
+        <form method="POST" action="{% url 'cadastro' %}" class="space-y-4 relative z-10">
+            {% csrf_token %}
+
+            <!-- Nome Completo -->
+            <div>
+                <label for="nome" class="block text-sm font-medium text-slate-300 mb-1.5">Nome Completo</label>
+                <input type="text" name="nome" id="nome" required
+                    class="w-full bg-slate-950/40 border border-slate-800 rounded-2xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-500/40 focus:border-purple-500 transition-all duration-200 text-sm"
+                    placeholder="Seu nome completo"
+                    value="{{ form.nome.value|default:'' }}">
+                {% if form.nome.errors %}
+                <p class="text-red-400 text-xs mt-1 ml-1">{{ form.nome.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Nickname -->
+            <div>
+                <label for="nickname" class="block text-sm font-medium text-slate-300 mb-1.5">Nickname</label>
+                <input type="text" name="nickname" id="nickname" required
+                    class="w-full bg-slate-950/40 border border-slate-800 rounded-2xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-500/40 focus:border-purple-500 transition-all duration-200 text-sm"
+                    placeholder="ex: leitor_voraz"
+                    value="{{ form.nickname.value|default:'' }}">
+                {% if form.nickname.errors %}
+                <p class="text-red-400 text-xs mt-1 ml-1">{{ form.nickname.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- E-mail -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-slate-300 mb-1.5">E-mail</label>
+                <input type="email" name="email" id="email" required
+                    class="w-full bg-slate-950/40 border border-slate-800 rounded-2xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-500/40 focus:border-purple-500 transition-all duration-200 text-sm"
+                    placeholder="seu@email.com"
+                    value="{{ form.email.value|default:'' }}">
+                {% if form.email.errors %}
+                <p class="text-red-400 text-xs mt-1 ml-1">{{ form.email.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Senha -->
+            <div>
+                <label for="senha" class="block text-sm font-medium text-slate-300 mb-1.5">Senha</label>
+                <input type="password" name="senha" id="senha" required
+                    class="w-full bg-slate-950/40 border border-slate-800 rounded-2xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-500/40 focus:border-purple-500 transition-all duration-200 text-sm"
+                    placeholder="Escolha uma senha forte">
+                {% if form.senha.errors %}
+                <p class="text-red-400 text-xs mt-1 ml-1">{{ form.senha.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Confirmar Senha -->
+            <div>
+                <label for="confirmar_senha" class="block text-sm font-medium text-slate-300 mb-1.5">Confirmar Senha</label>
+                <input type="password" name="confirmar_senha" id="confirmar_senha" required
+                    class="w-full bg-slate-950/40 border border-slate-800 rounded-2xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-500/40 focus:border-purple-500 transition-all duration-200 text-sm"
+                    placeholder="Repita a senha">
+                {% if form.confirmar_senha.errors %}
+                <p class="text-red-400 text-xs mt-1 ml-1">{{ form.confirmar_senha.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Botão Cadastrar -->
+            <button type="submit" 
+                class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg shadow-purple-500/15 transition-all duration-200 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-purple-500/50 mt-4 text-sm">
+                Criar Conta
+            </button>
+        </form>
+
+        <!-- Link de Navegação -->
+        <div class="text-center mt-6 relative z-10 text-sm">
+            <p class="text-slate-400">Já possui uma conta? 
+                <a href="{% url 'login' %}" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">Entrar</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
